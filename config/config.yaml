@@ -1,0 +1,164 @@
+# config.yaml
+# === Subject info ===
+subinfo_fields:
+  - name: subject_id
+    type: int
+    constraints:
+      min: 101
+      max: 999
+      digits: 3
+
+  - name: subname    
+    type: string
+
+  - name: age 
+    type: int
+    constraints:
+      min: 5
+      max: 60
+
+  - name: gender
+    type: choice
+    choices: [Male, Female]
+
+subinfo_mapping:
+    subject_id: "被试号"
+    subname: "被试姓名(拼音)"
+    age: "年龄"
+    gender: "性别"
+    Male: "男"
+    Female: "女"
+    registration_failed: "注册失败。"
+    registration_successful: "注册成功！"
+    invalid_input: "字段 {field} 输入无效"
+
+
+# === Window settings ===
+window:
+  size: [1920, 1080]
+  units: deg
+  screen: 1
+  bg_color: gray
+  fullscreen: True
+  monitor_width_cm: 60
+  monitor_distance_cm: 72
+
+# === Task-level settings ===
+task:
+  task_name: "eeg_gonogo"
+  total_blocks: 3
+  total_trials: 210
+  trial_per_block: 70
+  conditions: [go, nogo]
+  key_list: [space]
+  seed_mode: "same_across_sub"
+
+
+# === Stimuli (for Go/No-Go task) ===
+stimuli:
+  fixation:
+    type: text
+    text: "+"
+    color: white
+    height: 1.5
+  go:
+    type: circle
+    fillColor: white
+    size: 3
+    lineColor: ''
+
+  nogo:
+    type: rect
+    fillColor: white
+    size: [3, 3]
+    lineColor: ''
+
+  no_response_feedback  :
+    type: text
+    text: |
+      【未按键】
+      请在图形出现后按键
+    font: SimHei
+    height: 0.78
+
+  nogo_error_feedback:
+    type: text
+    text: |
+      【错误按键】
+      请在方形出现时不要按键
+    font: SimHei
+    height: 0.78
+
+  block_break:
+    type: text
+    text: |
+      【休息提示】
+
+      第 {block_num} / {total_blocks} 部分完成。
+      Go正确率：{go_accuracy:.2f}
+      NoGo正确率：{nogo_accuracy:.2f}
+
+      请在充分休息后按【空格键】
+      进入下一部分
+    color: white
+    font: SimHei
+    height: 0.78
+
+  instruction_text:
+    type: textbox
+    text: |
+      【Go/No-Go任务说明】
+
+      在本任务中，您将看到圆形或方形
+
+      您的目标是尽快且准确地做出反应
+
+        - 如果您看到圆形，请尽快按【空格键】
+        - 如果您看到方形，请不要按任何键
+
+      准备好后，请按【空格键】开始任务。
+    color: white
+    font: SimHei
+    alignment: center
+    letterHeight: 0.78
+    units: deg
+    size: [20, 5]
+
+  good_bye:
+    type: textbox
+    text: |
+      任务结束
+      
+      感谢您的参与
+      请按【空格键】键退出
+    color: white
+    font: SimHei
+    alignment: center
+    letterHeight: 0.78
+
+# === Timing & Adaptivity ===
+timing:
+  fixation_duration: [0.8, 1]
+  go_duration: 1.0        
+  no_response_feedback_duration: 0.8
+  nogo_error_feedback_duration: 0.8
+
+# === Triggers ===
+triggers:
+  exp_onset: 98
+  exp_end: 99
+
+  block_onset: 100
+  block_end: 101
+
+  fixation_onset: 1
+
+  go_onset: 10
+  go_response: 11
+  go_miss: 12
+  nogo_onset: 20
+  nogo_response: 21
+  nogo_miss: 22
+
+  no_response_feedback_onset: 30
+  nogo_error_feedback_onset: 31
