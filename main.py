@@ -33,8 +33,8 @@ trigger_sender = TriggerSender(
 win, kb = initialize_exp(settings)
 # 6. Setup stimulus bank
 stim_bank = StimBank(win,cfg['stim_config'])\
-            .convert_to_voice(['instruction_text'])\
-            .preload_all()
+    .convert_to_voice(['instruction_text'], voice=settings.voice_name)\
+        .preload_all()
 
 # 7. Start experiment
 StimUnit('instruction_text',win,kb)\
@@ -58,7 +58,7 @@ for block_i in range(settings.total_blocks):
     .on_start(lambda b: trigger_sender.send(settings.triggers.get("block_onset")))\
     .on_end(lambda b: trigger_sender.send(settings.triggers.get("block_end")))\
     .run_trial(func=run_trial, stim_bank=stim_bank, trigger_sender=trigger_sender)\
-    .to_dict(all_data)\
+    .to_dict(all_data)
     
     # get block data and statistics
     go_trials = block.get_trial_data(key='condition', pattern='go')

@@ -46,6 +46,8 @@ window:
 # === Task-level settings ===
 task:
   task_name: "eeg_gonogo"
+  language: "Chinese"
+  voice_name: "zh-CN-YunyangNeural"
   total_blocks: 3
   total_trials: 210
   trial_per_block: 70
