@@ -1,0 +1,11 @@
+id: T000005
+slug: go-nogo
+title: "Go/No-Go Task"
+acquisition: eeg
+variant: baseline
+cognitive_domain: []
+maturity: smoke_tested
+version:
+  release_tag: ""
+evidence: []
+maintainer: []
