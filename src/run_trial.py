@@ -1,4 +1,4 @@
-from functools import partial
+﻿from functools import partial
 from psyflow import StimUnit
 
 def run_trial(
@@ -7,7 +7,7 @@ def run_trial(
     settings,
     condition: str,           # 'go' or 'nogo'
     stim_bank: dict,          # must contain 'fixation', 'go', and 'nogo'
-    trigger_sender=None,
+    trigger_runtime=None,
 ):
     """
     Single Go/No-Go trial:
@@ -18,7 +18,7 @@ def run_trial(
       trial_data dict with fields 'condition','acc','rt','response', + timing/triggers.
     """
     trial_data = {'condition': condition}
-    make_unit = partial(StimUnit, win=win, kb=kb,  triggersender=trigger_sender)
+    make_unit = partial(StimUnit, win=win, kb=kb,  runtime=trigger_runtime)
 
     fix_stim  = stim_bank.get('fixation')
     # 1) Fixation (500 ms)
