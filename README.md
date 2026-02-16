@@ -5,12 +5,12 @@
 | Field                | Value                        |
 |----------------------|------------------------------|
 | Name                 | Go/No-Go Task       |
-| Version              | main (1.0)                          |
+| Version | main (1.1.0) |
 | URL / Repository     | https://github.com/TaskBeacon/T000005-go-nogo        |
 | Short Description    | A task measuring the ability to respond to target stimuli and inhibit responses to non-target stimuli. |
 | Created By           | Zhipeng Cao (zhipeng30@foxmail.com) |
-| Date Updated         |2025/07/24                              |
-| PsyFlow Version      | 0.1.0                             |
+| Date Updated | 2026/02/16 |
+| PsyFlow Version | 0.1.8 |
 | PsychoPy Version     | 2025.1.1                             |
 |Modality            | Behavior/EEG                |
 | Language | Chinese |
@@ -42,7 +42,7 @@ The Go/No-Go task is a cognitive paradigm used to assess response inhibition. In
 
 | Step                | Description                                                                 |
 |---------------------|-----------------------------------------------------------------------------|
-| Fixation            | Present fixation cross for 0.8â€?.0s with trigger                            |
+| Fixation            | Present fixation cross for 0.8?.0s with trigger                            |
 | Go Trial       | Present circle; wait up to 1s for a keypress; show feedback if none    |
 | No-Go Trial          | Present square; wait up to 1s and record any keypresses              |
 
@@ -52,9 +52,9 @@ The Go/No-Go task is a cognitive paradigm used to assess response inhibition. In
 
 | Field       | Meaning                        |
 |-------------|--------------------------------|
-| subject_id  | Unique participant number (101â€?99) |
+| subject_id  | Unique participant number (101?99) |
 | subname     | Participant name (pinyin)      |
-| age         | Age (5â€?0)                     |
+| age         | Age (5?0)                     |
 | gender      | Gender (Male or Female)        |
 
 ### b. Window Settings
@@ -85,7 +85,7 @@ The Go/No-Go task is a cognitive paradigm used to assess response inhibition. In
 
 | Phase                       | Duration (s)        |
 |-----------------------------|---------------------|
-| fixation                    | random 0.8â€?.0      |
+| fixation                    | random 0.8?.0      |
 | go/nogo stimulus (max duration)  | 1.0                 |
 | no-response feedback        | 0.8                 |
 
@@ -108,4 +108,4 @@ The Go/No-Go task is a cognitive paradigm used to assess response inhibition. In
 
 ## 4. Methods (for academic publication)
 
-Participants completed a Go/No-Go task designed to evaluate response inhibition. The task consisted of **3 blocks**, each containing **70 trials**, resulting in a total of **210 trials**. On each trial, participants saw either a circle ("go" stimulus) or a square ("nogo" stimulus). They were instructed to press a key as quickly and accurately as possible when they saw the circle and to withhold their response when they saw the square. On **75% of the trials**, the go stimulus was presented. Trials began with a fixation cross (0.8â€?.0s), followed by a go or nogo stimulus. The stimulus remained on screen for up to 1 second. If no response occurred on a go trial, a warning message was presented. Participants received a break after each block, displaying their accuracy for both go and nogo trials.
+Participants completed a Go/No-Go task designed to evaluate response inhibition. The task consisted of **3 blocks**, each containing **70 trials**, resulting in a total of **210 trials**. On each trial, participants saw either a circle ("go" stimulus) or a square ("nogo" stimulus). They were instructed to press a key as quickly and accurately as possible when they saw the circle and to withhold their response when they saw the square. On **75% of the trials**, the go stimulus was presented. Trials began with a fixation cross (0.8?.0s), followed by a go or nogo stimulus. The stimulus remained on screen for up to 1 second. If no response occurred on a go trial, a warning message was presented. Participants received a break after each block, displaying their accuracy for both go and nogo trials.

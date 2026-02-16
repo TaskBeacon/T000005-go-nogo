@@ -1,6 +1,7 @@
-# Base config (human run)
-# - Used by: python main.py
-# - Scope: human experiment only (no qa/sim section in this file)
+# Sampler simulation config
+# - Used by: python main.py sim --config config/config_sampler_sim.yaml
+# - Scope: sampler simulation only (no qa section in this file)
+# - Profile: short smoke run for sampler integration checks
 subinfo_fields:
 - name: subject_id
   type: int
@@ -44,16 +45,16 @@ task:
   task_name: eeg_gonogo
   language: Chinese
   voice_name: zh-CN-YunyangNeural
-  total_blocks: 3
-  total_trials: 210
-  trial_per_block: 70
+  total_blocks: 1
+  total_trials: 24
+  trial_per_block: 24
   conditions:
   - go
   - nogo
   key_list:
   - space
   seed_mode: same_across_sub
-  voice_enabled: true
+  voice_enabled: false
   delta: 0.0
 stimuli:
   fixation:
@@ -172,3 +173,23 @@ triggers:
     strict: false
   timing:
     post_delay_s: 0.001
+sim:
+  output_dir: outputs/sim_sampler
+  seed: 0
+  policy: warn
+  default_rt_s: 0.2
+  clamp_rt: false
+  responder:
+    type: responders.go_nogo_sampler:GoNoGoSamplerResponder
+    kwargs:
+      go_key: space
+      p_hit_go: 0.92
+      p_false_alarm_nogo: 0.18
+      p_miss_go: 0.04
+      rt_go_mean_s: 0.31
+      rt_sd_s: 0.05
+      rt_min_s: 0.12
+      continue_rt_s: 0.25
+  participant_id: sim101
+  session_id: sub-sim101_task-eeg_gonogo_sampler_seed0
+  log_path: outputs/sim_sampler/sub-sim101_task-eeg_gonogo_sampler_seed0_sim_events.jsonl

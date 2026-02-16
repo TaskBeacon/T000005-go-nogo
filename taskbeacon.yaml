@@ -1,11 +1,13 @@
 id: T000005
 slug: go-nogo
-title: "Go/No-Go Task"
+title: Go/No-Go Task
 acquisition: eeg
 variant: baseline
 cognitive_domain: []
 maturity: smoke_tested
 version:
-  release_tag: ""
+  release_tag: ''
 evidence: []
 maintainer: []
+contracts:
+  psyflow_taps: v0.1.0

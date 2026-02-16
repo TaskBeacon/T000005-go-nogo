@@ -1,6 +1,7 @@
-# Base config (human run)
-# - Used by: python main.py
-# - Scope: human experiment only (no qa/sim section in this file)
+# QA config (dev + qa)
+# - Used by: python main.py qa --config config/config_qa.yaml
+# - Scope: qa/dev only (no sim section in this file)
+# - Profile: short smoke run (covers all conditions with reduced trial count)
 subinfo_fields:
 - name: subject_id
   type: int
@@ -44,16 +45,16 @@ task:
   task_name: eeg_gonogo
   language: Chinese
   voice_name: zh-CN-YunyangNeural
-  total_blocks: 3
-  total_trials: 210
-  trial_per_block: 70
+  total_blocks: 1
+  total_trials: 24
+  trial_per_block: 24
   conditions:
   - go
   - nogo
   key_list:
   - space
   seed_mode: same_across_sub
-  voice_enabled: true
+  voice_enabled: false
   delta: 0.0
 stimuli:
   fixation:
@@ -172,3 +173,32 @@ triggers:
     strict: false
   timing:
     post_delay_s: 0.001
+qa:
+  output_dir: outputs/qa
+  enable_scaling: true
+  timing_scale: 0.05
+  min_frames: 1
+  strict: false
+  max_wait_s: 10.0
+  acceptance_criteria:
+    required_columns:
+    - condition
+    - trial_index
+    expected_trial_count: 24
+    allowed_keys:
+    - space
+    triggers_required: true
+    trigger_codes_expected:
+    - 1
+    - 10
+    - 11
+    - 12
+    - 20
+    - 21
+    - 22
+    - 30
+    - 31
+    - 98
+    - 99
+    - 100
+    - 101
