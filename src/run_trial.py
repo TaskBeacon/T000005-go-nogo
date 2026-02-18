@@ -2,7 +2,7 @@ from functools import partial
 
 from psyflow import StimUnit, set_trial_context
 
-# trial stages: cue -> anticipation -> target -> feedback
+# trial stages use task-specific phase labels via set_trial_context(...)
 _TRIAL_COUNTER = 0
 
 
@@ -38,17 +38,17 @@ def run_trial(
     trial_data = {"condition": condition}
     make_unit = partial(StimUnit, win=win, kb=kb, runtime=trigger_runtime)
 
-    # cue / anticipation
+    # phase: pre_target_fixation
     fix_unit = make_unit(unit_label="fixation").add_stim(stim_bank.get("fixation"))
     set_trial_context(
         fix_unit,
         trial_id=trial_id,
-        phase="anticipation",
+        phase="pre_target_fixation",
         deadline_s=_deadline_s(settings.fixation_duration),
         valid_keys=list(settings.key_list),
         block_id=block_id,
         condition_id=str(condition),
-        task_factors={"condition": str(condition), "stage": "anticipation", "block_idx": block_idx},
+        task_factors={"condition": str(condition), "stage": "pre_target_fixation", "block_idx": block_idx},
         stim_id="fixation",
     )
     fix_unit.show(
@@ -56,18 +56,18 @@ def run_trial(
         onset_trigger=settings.triggers.get("fixation_onset"),
     ).to_dict(trial_data)
 
-    # target
+    # phase: go_response_window
     if condition == "go":
         go_unit = make_unit(unit_label="go").add_stim(stim_bank.get("go"))
         set_trial_context(
             go_unit,
             trial_id=trial_id,
-            phase="target",
+            phase="go_response_window",
             deadline_s=_deadline_s(settings.go_duration),
             valid_keys=list(settings.key_list),
             block_id=block_id,
             condition_id=str(condition),
-            task_factors={"condition": str(condition), "stage": "target", "block_idx": block_idx},
+            task_factors={"condition": str(condition), "stage": "go_response_window", "block_idx": block_idx},
             stim_id="go",
         )
         go_unit.capture_response(
@@ -90,12 +90,12 @@ def run_trial(
         set_trial_context(
             nogo_unit,
             trial_id=trial_id,
-            phase="target",
+            phase="nogo_inhibition_window",
             deadline_s=_deadline_s(settings.go_duration),
             valid_keys=list(settings.key_list),
             block_id=block_id,
             condition_id=str(condition),
-            task_factors={"condition": str(condition), "stage": "target", "block_idx": block_idx},
+            task_factors={"condition": str(condition), "stage": "nogo_inhibition_window", "block_idx": block_idx},
             stim_id="nogo",
         )
         nogo_unit.capture_response(
@@ -114,5 +114,5 @@ def run_trial(
                 onset_trigger=settings.triggers.get("nogo_error_feedback_onset"),
             ).to_dict(trial_data)
 
-    # feedback
+    # outcome display
     return trial_data

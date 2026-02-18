@@ -46,6 +46,13 @@ The Go/No-Go task is a cognitive paradigm used to assess response inhibition. In
 | Go Trial       | Present circle; wait up to 1s for a keypress; show feedback if none    |
 | No-Go Trial          | Present square; wait up to 1s and record any keypresses              |
 
+### Runtime Context Phases
+| Phase Label | Meaning |
+|---|---|
+| `pre_target_fixation` | pre target fixation stage in `src/run_trial.py` responder context. |
+| `go_response_window` | go response window stage in `src/run_trial.py` responder context. |
+| `nogo_inhibition_window` | nogo inhibition window stage in `src/run_trial.py` responder context. |
+
 ## 3. Configuration Summary
 
 ### a. Subject Info
