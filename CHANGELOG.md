@@ -2,9 +2,12 @@
 
 All notable development changes for `T000005-go-nogo` are documented here.
 
-## [1.1.1] - 2026-02-18
+## [Unreleased]
 
 ### Changed
+- Refactored `src/run_trial.py` to use `psyflow`'s native `next_trial_id()` and removed legacy internal `_next_trial_id` and `_deadline_s` boilerplate.
+
+## [1.1.1] - 2026-02-18
 - Refactored responder context phase names in `src/run_trial.py` to task-specific labels (removed generic MID-style phase naming).
 - Updated stage comments in `src/run_trial.py` to phase-aligned labels for cleaner auditability.
 - Updated `README.md` to keep runtime phase documentation aligned with the implemented trial context phases.
