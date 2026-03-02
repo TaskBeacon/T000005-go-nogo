@@ -64,7 +64,8 @@ class GoNoGoSamplerResponder:
                 return Action(key=None, rt_s=None, meta={"source": "go_nogo_sampler", "reason": "no_valid_key"})
             return Action(key=key, rt_s=max(0.01, self.continue_rt_s), meta={"source": "go_nogo_sampler", "phase": phase})
 
-        if phase != "target" or self._rng is None:
+        response_phases = {"target", "go_response_window", "nogo_inhibition_window"}
+        if phase not in response_phases or self._rng is None:
             return Action(key=None, rt_s=None, meta={"source": "go_nogo_sampler", "phase": phase, "reason": "withhold"})
 
         condition = str(obs.condition_id or "").strip().lower()

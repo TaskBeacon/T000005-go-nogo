@@ -1,13 +1,19 @@
-id: T000005
+﻿id: T000005
 slug: go-nogo
 title: Go/No-Go Task
 acquisition: eeg
 variant: baseline
-cognitive_domain: []
+cognitive_domain:
+  - inhibitory_control
+  - response_selection
 maturity: smoke_tested
 version:
-  release_tag: ''
-evidence: []
-maintainer: []
+  release_tag: v1.2.0
+evidence:
+  - W2114411261
+  - W2124906793
+  - W2101475053
+maintainer:
+  - Zhipeng Cao
 contracts:
   psyflow_taps: v0.1.0

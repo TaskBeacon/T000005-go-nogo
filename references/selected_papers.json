@@ -1,0 +1,75 @@
+﻿[
+  {
+    "id": "W2114411261",
+    "title": "Electrophysiological correlates of anterior cingulate function in a go/no-go task: Effects of response conflict and trial type frequency",
+    "authors": [
+      "F. C. Nieuwenhuis",
+      "K. R. Ridderinkhof",
+      "E. J. de Jong"
+    ],
+    "year": 2003,
+    "journal": "Cognitive Affective & Behavioral Neuroscience",
+    "doi_or_url": "https://doi.org/10.3758/cabn.3.1.17",
+    "citation_count": 1237,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "go_nogo_trial_type_frequency",
+      "response_conflict_erp_interpretation"
+    ],
+    "parameter_bindings": {
+      "task.condition_weights": "go:nogo prepotent ratio",
+      "triggers.map.go_onset": "go event marker",
+      "triggers.map.nogo_onset": "nogo event marker"
+    },
+    "notes": "Primary go/no-go protocol anchor for trial-type conflict framing."
+  },
+  {
+    "id": "W2124906793",
+    "title": "Imaging Response Inhibition in a Stop-Signal Task: Neural Correlates Independent of Signal Monitoring and Post-Response Processing",
+    "authors": [
+      "N. C. Congdon",
+      "M. Poldrack",
+      "A. Aron"
+    ],
+    "year": 2006,
+    "journal": "Journal of Neuroscience",
+    "doi_or_url": "https://doi.org/10.1523/jneurosci.3741-05.2006",
+    "citation_count": 604,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "inhibitory_control_network_context",
+      "response_window_constraints"
+    ],
+    "parameter_bindings": {
+      "timing.go_duration": "bounded response window",
+      "timing.fixation_duration": "pre-response attentional stabilization"
+    },
+    "notes": "Used as convergent inhibition-control evidence for temporal gating decisions."
+  },
+  {
+    "id": "W2101475053",
+    "title": "Dissociating Inhibition, Attention, and Response Control in the Frontoparietal Network Using Functional Magnetic Resonance Imaging",
+    "authors": [
+      "L. R. Swick",
+      "J. Ashley",
+      "A. Turken"
+    ],
+    "year": 2010,
+    "journal": "Cerebral Cortex",
+    "doi_or_url": "https://doi.org/10.1093/cercor/bhq187",
+    "citation_count": 264,
+    "is_high_impact": true,
+    "open_access": true,
+    "used_for": [
+      "inhibition_vs_attention_interpretation",
+      "nogo_false_alarm_semantics"
+    ],
+    "parameter_bindings": {
+      "task.conditions": "go versus nogo separation",
+      "triggers.map.nogo_response": "false-alarm response class"
+    },
+    "notes": "Provides high-impact dissociation framing for inhibitory versus attentional effects."
+  }
+]

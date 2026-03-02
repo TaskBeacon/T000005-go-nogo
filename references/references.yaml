@@ -1,0 +1,38 @@
+﻿task_id: T000005
+generated_at: 2026-03-02T18:00:00Z
+selection_policy: manual_relevance_curation_from_openalex_open_access_pool
+citation_threshold: 100
+papers:
+  - id: W2114411261
+    title: "Electrophysiological correlates of anterior cingulate function in a go/no-go task: Effects of response conflict and trial type frequency"
+    year: 2003
+    journal: Cognitive Affective & Behavioral Neuroscience
+    doi_or_url: https://doi.org/10.3758/cabn.3.1.17
+    citation_count: 1237
+    open_access: true
+    is_high_impact: false
+    used_for:
+      - go_nogo_trial_type_frequency
+      - response_conflict_erp_interpretation
+  - id: W2124906793
+    title: "Imaging Response Inhibition in a Stop-Signal Task: Neural Correlates Independent of Signal Monitoring and Post-Response Processing"
+    year: 2006
+    journal: Journal of Neuroscience
+    doi_or_url: https://doi.org/10.1523/jneurosci.3741-05.2006
+    citation_count: 604
+    open_access: true
+    is_high_impact: false
+    used_for:
+      - inhibitory_control_network_context
+      - response_window_constraints
+  - id: W2101475053
+    title: Dissociating Inhibition, Attention, and Response Control in the Frontoparietal Network Using Functional Magnetic Resonance Imaging
+    year: 2010
+    journal: Cerebral Cortex
+    doi_or_url: https://doi.org/10.1093/cercor/bhq187
+    citation_count: 264
+    open_access: true
+    is_high_impact: true
+    used_for:
+      - inhibition_vs_attention_interpretation
+      - nogo_false_alarm_semantics

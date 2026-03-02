@@ -51,6 +51,9 @@ task:
   conditions:
   - go
   - nogo
+  condition_weights:
+    go: 3
+    nogo: 1
   key_list:
   - space
   seed_mode: same_across_sub
@@ -180,7 +183,7 @@ sim:
   default_rt_s: 0.2
   clamp_rt: false
   responder:
-    type: responders.go_nogo_sampler:GoNoGoSamplerResponder
+    type: responders.task_sampler:TaskSamplerResponder
     kwargs:
       go_key: space
       p_hit_go: 0.92

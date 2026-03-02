@@ -50,6 +50,9 @@ task:
   conditions:
   - go
   - nogo
+  condition_weights:
+    go: 3
+    nogo: 1
   key_list:
   - space
   seed_mode: same_across_sub

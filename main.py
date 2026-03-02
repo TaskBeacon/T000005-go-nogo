@@ -89,6 +89,8 @@ def run(options: TaskRunOptions):
         instruction.wait_and_continue()
 
         all_data = []
+        condition_labels = list(getattr(settings, "conditions", []) or ["go", "nogo"])
+        condition_weights = settings.resolve_condition_weights()
         for block_i in range(settings.total_blocks):
             if options.mode not in ("qa", "sim"):
                 count_down(win, 3, color="white")
@@ -101,7 +103,11 @@ def run(options: TaskRunOptions):
                     window=win,
                     keyboard=kb,
                 )
-                .generate_conditions(condition_labels=["go", "nogo"], weights=[3, 1], order="random")
+                .generate_conditions(
+                    condition_labels=condition_labels,
+                    weights=condition_weights,
+                    order="random",
+                )
                 .on_start(lambda b: trigger_runtime.send(settings.triggers.get("block_onset")))
                 .on_end(lambda b: trigger_runtime.send(settings.triggers.get("block_end")))
                 .run_trial(
