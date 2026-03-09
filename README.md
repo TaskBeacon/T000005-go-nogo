@@ -1,4 +1,4 @@
-﻿# Go/No-Go Task
+# Go/No-Go Task
 
 ![Maturity: smoke_tested](https://img.shields.io/badge/Maturity-smoke_tested-d97706?style=for-the-badge&labelColor=c2410c)
 
@@ -21,6 +21,8 @@
 This Go/No-Go implementation measures inhibitory control by requiring a key press to frequent Go stimuli and response withholding to infrequent NoGo stimuli. The runtime uses condition-weighted generation (`go:nogo = 3:1`) from config and records both behavioral outcomes and trigger streams for EEG-aligned analysis.
 
 ## 2. Task Flow
+
+![Task flow](./task_flow.png)
 
 ### Block-Level Flow
 
