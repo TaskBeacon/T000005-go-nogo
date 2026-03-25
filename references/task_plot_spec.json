@@ -74,7 +74,7 @@
           },
           {
             "phase_name": "go response window",
-            "display_phase_label": "Go Response Window",
+            "display_phase_label": "Go",
             "duration_ms": {
               "fixed": 1000
             },
@@ -108,8 +108,8 @@
       },
       {
         "condition": "nogo",
-        "display_condition_label": "NoGo",
-        "display_condition_note": "3:1 weighting; rare NoGo trials",
+        "display_condition_label": "No Go",
+        "display_condition_note": "3:1 weighting; rare No-Go trials",
         "phases": [
           {
             "phase_name": "pre target fixation",
@@ -143,7 +143,7 @@
           },
           {
             "phase_name": "nogo inhibition window",
-            "display_phase_label": "NoGo Inhibition Window",
+            "display_phase_label": "No Go",
             "duration_ms": {
               "fixed": 1000
             },
@@ -162,12 +162,15 @@
                 {
                   "kind": "shape",
                   "shape": "rect",
-                  "label": "NoGo Square",
+                "label": "No Go Square",
                   "color": "white",
                   "line_color": "",
                   "line_width": 1.0,
                   "pos": null,
-                  "size": null
+                "size": [
+                  3,
+                  3
+                ]
                 }
               ]
             },

@@ -58,7 +58,7 @@ task_plot_spec:
           height: 1.5
       notes: ''
     - phase_name: go response window
-      display_phase_label: Go Response Window
+      display_phase_label: Go
       duration_ms:
         fixed: 1000
       response_window_ms:
@@ -81,8 +81,8 @@ task_plot_spec:
           size: null
       notes: Go miss may show no_response_feedback (0.8 s).
   - condition: nogo
-    display_condition_label: NoGo
-    display_condition_note: 3:1 weighting; rare NoGo trials
+    display_condition_label: No Go
+    display_condition_note: 3:1 weighting; rare No-Go trials
     phases:
     - phase_name: pre target fixation
       display_phase_label: Fixation
@@ -106,7 +106,7 @@ task_plot_spec:
           height: 1.5
       notes: ''
     - phase_name: nogo inhibition window
-      display_phase_label: NoGo Inhibition Window
+      display_phase_label: No Go
       duration_ms:
         fixed: 1000
       response_window_ms:
@@ -121,11 +121,13 @@ task_plot_spec:
         render_items:
         - kind: shape
           shape: rect
-          label: NoGo Square
+          label: No Go Square
           color: white
           line_color: ''
           line_width: 1.0
           pos: null
-          size: null
+          size:
+          - 3
+          - 3
       notes: False alarm may show nogo_error_feedback (0.8 s).
   legend: []
