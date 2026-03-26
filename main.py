@@ -124,11 +124,11 @@ def run(options: TaskRunOptions):
             nogo_trials = block.get_trial_data(key="condition", pattern="nogo")
 
             num_go = len(go_trials)
-            num_go_hit = sum(trial.get("go_hit", False) for trial in go_trials)
-            go_accuracy = num_go_hit / num_go if num_go > 0 else 0
+            num_go_correct = sum(trial.get("go_correct", trial.get("go_hit", False)) for trial in go_trials)
+            go_accuracy = num_go_correct / num_go if num_go > 0 else 0
 
             num_nogo = len(nogo_trials)
-            num_nogo_correct = sum(not trial.get("nogo_hit", False) for trial in nogo_trials)
+            num_nogo_correct = sum(trial.get("nogo_correct", not trial.get("nogo_hit", False)) for trial in nogo_trials)
             nogo_accuracy = num_nogo_correct / num_nogo if num_nogo > 0 else 0
 
             StimUnit("block", win, kb, runtime=trigger_runtime).add_stim(

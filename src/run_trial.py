@@ -60,6 +60,7 @@ def run_trial(
             terminate_on_response=True,
         )
         go_unit.to_dict(trial_data)
+        trial_data["go_correct"] = bool(trial_data.get("go_hit", False))
 
         if not go_unit.get_state("response", False):
             make_unit(unit_label="no_response_feedback").add_stim(stim_bank.get("no_response_feedback")).show(
@@ -88,6 +89,8 @@ def run_trial(
             terminate_on_response=True,
         )
         nogo_unit.to_dict(trial_data)
+        trial_data["nogo_false_alarm"] = bool(trial_data.get("nogo_hit", False))
+        trial_data["nogo_correct"] = not trial_data["nogo_false_alarm"]
 
         if nogo_unit.get_state("response", False):
             make_unit(unit_label="nogo_error_feedback").add_stim(stim_bank.get("nogo_error_feedback")).show(
