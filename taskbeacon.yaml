@@ -16,4 +16,6 @@ evidence:
 maintainer:
   - Zhipeng Cao
 contracts:
-  taps: v0.1.0
+  taps: v0.2.0
+runtime:
+  profile: psyflow
