@@ -7,6 +7,9 @@ All notable development changes for `T000005-go-nogo` are documented here.
 ### Changed
 - Refactored `src/run_trial.py` to use `psyflow`'s native `next_trial_id()` and removed legacy internal `_next_trial_id` and `_deadline_s` boilerplate.
 
+### Removed
+- Removed unused empty `src/utils.py`.
+
 ## [1.2.0] - 2026-03-02
 
 ### Added
