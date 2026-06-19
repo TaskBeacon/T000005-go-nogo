@@ -8,49 +8,38 @@
 - `src/run_trial.py`
 - `references/task_logic_audit.md`
 
-## Task
+## Header
 
-- Name: Go/No-Go Task
-- Goal measured: inhibitory control
-- Runtime: PsyFlow/PsychoPy behavioral/EEG task
-- Structure: 3 blocks, 70 trials per block, 210 trials total
-- Condition scheduling: random weighted generation with `go:nogo = 3:1`
-- Response key: `space`
-- Controller: no adaptive controller; timing and condition mix are config-driven
+- Title: Go/No-Go Task
+- Construct: inhibitory control / response selection
 
 ## Participant-Visible Flow
 
-- Instruction screen explains circle means press space and square means withhold.
-- Each block starts after countdown in human mode.
-- Trials are randomly sampled as Go or NoGo using the 3:1 weights.
+- Instruction screen explains that a circle means press `space` and a square means withhold response.
+- The task has 3 blocks with 70 trials per block, 210 trials total.
+- Trials are randomly sampled as Go or NoGo using config weights `go:nogo = 3:1`.
 - Every trial starts with a white `+` fixation for 0.8-1.0 s.
-- Go trial: white circle appears for up to 1.0 s; pressing `space` is a hit and ends the response window.
+- Go trial: a white circle appears for up to 1.0 s; pressing `SPACE` is a hit.
 - Go miss: if no key is pressed, a no-response feedback screen appears for 0.8 s.
-- NoGo trial: white square appears for up to 1.0 s; participant should withhold all keypresses.
-- NoGo false alarm: if `space` is pressed, an error feedback screen appears for 0.8 s.
-- Correct Go response and correct NoGo withholding do not show feedback.
+- NoGo trial: a white square appears for up to 1.0 s; participant should withhold response.
+- NoGo false alarm: if `SPACE` is pressed, an error feedback screen appears for 0.8 s.
+- Correct Go responses and correct NoGo withholding do not show trial feedback.
 - After each block, a rest/summary screen shows Go and NoGo accuracy and waits for `space`.
-- A goodbye screen ends the task.
 
-## Diagram Rows
+## Rows
 
-- Go trial: frequent target trial, press `SPACE` to circle.
-- NoGo trial: rare inhibition trial, withhold response to square.
+- Go: frequent target trial, press `SPACE` to the white circle.
+- NoGo: rare inhibition trial, withhold response to the white square.
 
-## Timing Labels
+## Timings
 
-- Fixation: `0.8-1.0 s`
-- Target window: `1.0 s max`
-- Error feedback: `0.8 s`
+- Fixation: 0.8-1.0 s.
+- Target window: 1.0 s max.
+- Error feedback: 0.8 s.
 
-## Visual Labels To Preserve
+## Rendering Notes
 
-- `Go`
-- `NoGo`
-- `+`
-- `white circle`
-- `white square`
-- `SPACE`
-- `0.8-1.0 s`
-- `1.0 s max`
-- `0.8 s`
+- Show only the participant-visible timeline, not block setup screens.
+- Show conditional feedback as the final screen in each row: Go miss only if no response, NoGo error only if `SPACE` is pressed.
+- The generated raw image must contain only timeline content below a blank header band.
+- The final title, `Construct: inhibitory control / response selection` subtitle, and TaskBeacon logo are added by post-processing.

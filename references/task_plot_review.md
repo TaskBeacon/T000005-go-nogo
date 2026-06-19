@@ -5,20 +5,17 @@ Review checklist source: `E:/Taskbeacon/skills/task-plot/references/review_check
 ## Evidence Match
 
 - Pass: task name matches `Go/No-Go Task`.
-- Pass: condition rows are `Go` and `NoGo`, matching config conditions.
-- Pass: phase order matches `src/run_trial.py`: fixation, target response/inhibition window, conditional error feedback.
-- Pass: timing labels match config: fixation `0.8-1.0 s`, target window `1.0 s max`, feedback `0.8 s`.
-- Pass: visible screen content uses participant-facing `+`, circle, square, `Miss`, and `Error` screens.
-- Pass: response instructions match runtime logic: Go presses `SPACE`; NoGo withholds response; NoGo error appears only if `SPACE` is pressed.
+- Pass: rows match Go and NoGo conditions.
+- Pass: phase order matches `src/run_trial.py`: fixation, target response/inhibition window, conditional feedback.
+- Pass: timing labels match config: 0.8-1.0 s fixation, 1.0 s target window, 0.8 s feedback.
+- Pass: response mapping is correct: Go uses `SPACE`; NoGo withholds response and shows error feedback only if `SPACE` is pressed.
 
 ## Visual Quality
 
-- Pass: text is readable at document preview size.
-- Pass: rows and arrows clearly imply temporal order.
-- Pass: screens, timing labels, and condition labels do not overlap.
-- Pass: the figure is a scientific workflow diagram with restrained styling.
+- Pass: fixed title and `Construct: inhibitory control / response selection` subtitle are centered in the header.
 - Pass: fixed TaskBeacon logo lockup is borderless in the top-right corner and does not overlap content.
-- Pass: no extra generated logo, watermark, people, devices, or decorative scenery are present.
+- Pass: text is readable and no generated extra title, subtitle, logo, watermark, people, or devices are present.
+- Pass: `references/task_plot_timeline_raw.png` preserves the generated timeline before header/logo post-processing.
 
 ## README Embed
 
