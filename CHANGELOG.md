@@ -4,6 +4,9 @@ All notable development changes for `T000005-go-nogo` are documented here.
 
 ## [Unreleased]
 
+### Fixed
+- Added trial context metadata for conditional go omission and no-go error feedback phases.
+
 ### Changed
 - Refactored `src/run_trial.py` to use `psyflow`'s native `next_trial_id()` and removed legacy internal `_next_trial_id` and `_deadline_s` boilerplate.
 

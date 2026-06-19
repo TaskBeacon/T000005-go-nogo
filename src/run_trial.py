@@ -63,7 +63,24 @@ def run_trial(
         trial_data["go_correct"] = bool(trial_data.get("go_hit", False))
 
         if not go_unit.get_state("response", False):
-            make_unit(unit_label="no_response_feedback").add_stim(stim_bank.get("no_response_feedback")).show(
+            feedback_unit = make_unit(unit_label="no_response_feedback").add_stim(stim_bank.get("no_response_feedback"))
+            set_trial_context(
+                feedback_unit,
+                trial_id=trial_id,
+                phase="no_response_feedback",
+                deadline_s=settings.no_response_feedback_duration,
+                valid_keys=[],
+                block_id=block_id,
+                condition_id=str(condition),
+                task_factors={
+                    "condition": str(condition),
+                    "stage": "no_response_feedback",
+                    "response": False,
+                    "block_idx": block_idx,
+                },
+                stim_id="no_response_feedback",
+            )
+            feedback_unit.show(
                 duration=settings.no_response_feedback_duration,
                 onset_trigger=settings.triggers.get("no_response_feedback_onset"),
             ).to_dict(trial_data)
@@ -93,7 +110,25 @@ def run_trial(
         trial_data["nogo_correct"] = not trial_data["nogo_false_alarm"]
 
         if nogo_unit.get_state("response", False):
-            make_unit(unit_label="nogo_error_feedback").add_stim(stim_bank.get("nogo_error_feedback")).show(
+            feedback_unit = make_unit(unit_label="nogo_error_feedback").add_stim(stim_bank.get("nogo_error_feedback"))
+            set_trial_context(
+                feedback_unit,
+                trial_id=trial_id,
+                phase="nogo_error_feedback",
+                deadline_s=settings.nogo_error_feedback_duration,
+                valid_keys=[],
+                block_id=block_id,
+                condition_id=str(condition),
+                task_factors={
+                    "condition": str(condition),
+                    "stage": "nogo_error_feedback",
+                    "response": True,
+                    "false_alarm": True,
+                    "block_idx": block_idx,
+                },
+                stim_id="nogo_error_feedback",
+            )
+            feedback_unit.show(
                 duration=settings.nogo_error_feedback_duration,
                 onset_trigger=settings.triggers.get("nogo_error_feedback_onset"),
             ).to_dict(trial_data)
